@@ -1,0 +1,17 @@
+.popup__content {
+    margin-top: 34px;
+    min-width: 358px;
+    font-family: "Inter", Arial, sans-serif;
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    color: #000;
+}
+
+@media screen and (max-width: 450px) {
+    .popup__content {
+        min-width: calc(100% - 44px);
+        margin-top: 25px;
+    }
+}

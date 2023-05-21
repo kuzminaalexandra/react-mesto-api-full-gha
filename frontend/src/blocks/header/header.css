@@ -1,0 +1,30 @@
+.header {
+  font-family: 'Inter';
+  display: flex;
+  max-width: 880px;
+  min-height: 74px;
+  margin: 0px auto 0;
+  padding: 45px;
+  border-bottom: solid #545454 1px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (max-width: 930px) {
+  .header {
+    max-width: calc(100vw - 38px);
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .header {
+    margin-top: 28px;
+    min-height: 56px;
+  }
+}
+
+@media screen and (max-width: 315px) {
+  .header {
+    max-width: 100%;
+  }
+}

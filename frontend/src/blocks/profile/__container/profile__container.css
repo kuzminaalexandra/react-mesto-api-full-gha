@@ -1,0 +1,11 @@
+.profile__container {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 350px) {
+    .profile__container {
+        min-width: 282px;
+        justify-content: center;
+    }
+}

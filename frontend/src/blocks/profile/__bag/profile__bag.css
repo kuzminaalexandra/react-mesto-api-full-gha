@@ -1,0 +1,17 @@
+.profile__bag {
+    display: flex;
+    gap: 30px;
+}
+
+@media screen and (max-width: 495px) {
+    .profile__bag {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .profile__bag {
+        gap: 26px;
+        min-width: 282px;
+    }
+}
