@@ -47,7 +47,9 @@ module.exports.createUser = (req, res, next) => {
       res.send({ data: userData });
     })
     .catch((err) => {
-      if (err.code === 11000) {
+      if (err.name === 'ValidationError') {
+        next(new CustomError('Некорректный запрос', StatusCodes.BAD_REQUEST));
+      } else if (err.code === 11000) {
         next(new CustomError('пользователь уже зарегистрирован', StatusCodes.CONFLICT));
       } else {
         next(err);
@@ -65,11 +67,16 @@ module.exports.updateUser = (req, res, next) => {
     .then((user) => {
       if (!user) {
         next(new CustomError('Такого пользователя нет', StatusCodes.NOT_FOUND));
+      } else {
+        res.send(user);
       }
-      res.send(user);
     })
     .catch((err) => {
-      next(err);
+      if (err.name === 'ValidationError') {
+        next(new CustomError('Некорректные данные при создании карточки', StatusCodes.BAD_REQUEST));
+      } else {
+        next(err);
+      }
     });
 };
 
@@ -83,11 +90,16 @@ module.exports.updateAvatar = (req, res, next) => {
     .then((user) => {
       if (!user) {
         next(new CustomError('Пользователь не найден', StatusCodes.NOT_FOUND));
+      } else {
+        res.send(user);
       }
-      res.send(user);
     })
     .catch((err) => {
-      next(err);
+      if (err.name === 'ValidationError') {
+        next(new CustomError('Некорректные данные при создании карточки', StatusCodes.BAD_REQUEST));
+      } else {
+        next(err);
+      }
     });
 };
 
