@@ -12,9 +12,9 @@ const errorHandler = (err, req, res, next) => {
   // Определяем сообщение об ошибке по статусу
   let errorMessage = '';
   if (statusCode === 500) {
-    errorMessage = err.message;
+    errorMessage = 'Произошла ошибка';
   } else {
-    errorMessage = err.message || 'Произошла ошибка';
+    errorMessage = err.message;
   }
 
   // Отправляем ответ с соответствующим статусом и сообщением об ошибке
