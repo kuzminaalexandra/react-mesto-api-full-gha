@@ -23,8 +23,9 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
   .then(() => console.log('MongoDB connected'));
 
 app.use(corsHandler);
-app.use(limiter);
 app.use(helmet());
+app.use(requestLogger);
+app.use(limiter);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -35,8 +36,6 @@ app.get('/crash-test', () => {
     throw new Error('Сервер сейчас упадётт');
   }, 0);
 });
-
-app.use(requestLogger);
 
 app.use(router);
 
